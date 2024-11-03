@@ -8,42 +8,30 @@
             <p class="lead">Disini Gua belajar Laravel</p>
             <a href="#" class="btn btn-dark text-white btn-lg">Get Started</a>
         </div>
+     
     </section>
 
     <!-- Features Section -->
     <section class="py-5">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-speedometer2 fs-1 text-primary"></i>
-                            <h5 class="card-title mt-3">Fast Performance</h5>
-                            <p class="card-text">Enjoy the blazing speed of our services.</p>
+            <div class="row d-flex flex-wrap justify-content-center">
+                @foreach ($technologies as $items)
+                <div class="col-md-4 mb-4 d-flex">
+                    <a href="/tech/{{ $items["slug"] }}" class="text-decoration-none w-100">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <i class="bi bi-speedometer2 fs-1 text-primary"></i>
+                                <h5 class="card-title mt-3">{{ $items["title"] }}</h5>
+                                <p class="card-text">{{ $items["description"] }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-shield-lock fs-1 text-primary"></i>
-                            <h5 class="card-title mt-3">Secure</h5>
-                            <p class="card-text">Your security is our top priority.</p>
-                        </div>
-                    </div>
-                  </div>
-                <div class="col-md-4 mb-4"> 
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-heart fs-1 text-primary"></i>
-                            <h5 class="card-title mt-3">User-Friendly</h5>
-                            <p class="card-text">An interface that you’ll fall in love with.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    
 
    
 @endsection
