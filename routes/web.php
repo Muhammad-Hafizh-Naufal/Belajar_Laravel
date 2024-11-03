@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TechController; // memanggil controller
+use Illuminate\Support\Facades\Route; // memanggil route
 use App\Models\tech; // memanggil model technologies
 
 /*
@@ -16,26 +17,10 @@ use App\Models\tech; // memanggil model technologies
 
 
 // Route ke home
-Route::get("/", function () {
-    return view( "home  ", 
-    [
-        "title" => "Home",  
-        "technologies" => tech::all() // mengambil semua data dari technologies
-    ] );
-});
+Route::get("/",[TechController::class, "home"] ); // memanggil Techcontroller dengan fungsi home
 
 // Route ke about
-Route::get("/about", function () {
-    return view( "about  ", [
-        "title" => "About", 
-       
-    ] );
-});
+Route::get("/about", [TechController::class, "about"] ); // memanggil Techcontroller dengan fungsi about
 
 // Route ke tech
-Route::get("/tech/{slug}", function ($slug) {
-    return view( "tech",[
-        "title" => "Tech",
-        "item" => tech::find($slug) // mengambil data berdasarkan slug
-    ]);
-});
+Route::get("/tech/{slug}", [TechController::class, "tech"] ); // memanggil Techcontroller dengan fungsi tech

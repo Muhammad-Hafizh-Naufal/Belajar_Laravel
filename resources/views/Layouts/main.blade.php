@@ -11,20 +11,24 @@
     {{-- Memanggil components navbar --}}
 @include('Components/navbar')
 
+<div class="min-vh-100">
 
     {{-- content dari file home --}}
-<div class="container">
-    @yield('content-home')
+    <div class="container">
+        @yield('content-home')
+    </div>
+    
+    {{-- content dari file about --}}
+    <div class="container">
+        @yield('content-about')
+    </div>
+    
+    <div class="container min-vh-100">
+        @yield('content-tech')
+    </div>
+
 </div>
 
-{{-- content dari file about --}}
-<div class="container">
-    @yield('content-about')
-</div>
-
-<div>
-    @yield('content-tech')
-</div>
 
  <!-- Footer -->
     <footer class="bg-light py-4">
